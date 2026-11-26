@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahmoud ElSherif – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, modest, clear — a practitioner showing his work, not a sales page.
+   IDEA: an operations handbook: four areas (cards, payments, controls, automation), each item backed by a screen or a guide.
+   PICTURE: his portrait with the four work areas as a navigable panel in the first screen.
+   COLOUR and TYPE: deep ink blue field, white paper, one coral accent for "breaks"; Inter Tight titles, Inter body.
+   LAYOUT: full-bleed hero band, stat ledger strip, case studies as wide rows of story + evidence, timeline, footer. */
+:root{color-scheme:light dark;--ft:"Inter Tight",Inter,system-ui,sans-serif;
+--bg:light-dark(#ffffff,#0f141a);--paper:light-dark(#f4f6f8,#161d25);--ink:light-dark(#141c26,#e6ebf0);--mute:light-dark(#5a6673,#9aa7b4);
+--line:light-dark(#dde3e9,#28323d);--deep:#0c2033;--deep2:#143350;--acc:#e0533d;
+--s1:light-dark(#a9c8e6,#5b86b0);--s2:light-dark(#4f88c0,#3f74a8);--s3:light-dark(#173f6b,#c8dcf0)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:var(--ft);line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,3.4vw,40px);font-weight:600}h3{font-size:20px;font-weight:600;line-height:1.25}
+p{margin:0 0 12px;max-width:68ch}a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}.band{padding:clamp(40px,5vw,80px) max(5vw,16px)}
+.alt{background:var(--paper)}
+nav{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff;border-bottom:1px solid #22405f}
+nav .wrap{display:flex;gap:6px;align-items:center;padding:0 max(5vw,16px);overflow-x:auto}
+nav b{flex:none;font-family:var(--ft);font-size:16px;margin-right:auto;white-space:nowrap;padding:14px 12px 14px 0}
+nav a{flex:none;text-decoration:none;font-size:14px;color:#c9d6e3;padding:14px 10px;min-height:44px}nav a:hover{color:#fff}
+.hero{background:var(--deep);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(40px,5.4vw,64px);font-weight:700}
+.role{font-size:clamp(18px,2vw,22px);color:#cfe0f1;margin:14px 0 18px}
+.hero p{color:#dbe6f0;font-size:17px}
+.emp{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.emp span{border:1px solid #33557a;border-radius:6px;padding:7px 12px;font:600 14px var(--ft);letter-spacing:.01em;background:#102a43}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:8px;font:600 15px Inter;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.p{background:var(--acc);color:#fff}.btn.g{border-color:#4a6f95;color:#fff;background:transparent}
+.btn.o{border-color:var(--line);background:var(--bg);color:var(--ink)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.card{background:#102a43;border:1px solid #2a4b6d;border-radius:14px;padding:22px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:start;box-shadow:0 24px 60px #0007}
+.card img{width:150px;height:150px;border-radius:12px;object-fit:cover;object-position:top}
+.card .k{font-size:13px;color:#a8bfd6}.card .big{font:700 clamp(38px,4.4vw,52px)/1 var(--ft);margin:4px 0 2px}
+.card .big s{color:#8aa5c0;font-weight:500;text-decoration-thickness:2px}
+.now{font:600 clamp(20px,2.2vw,26px)/1.2 var(--ft);margin:4px 0 2px}
+.areas{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.areas a{display:block;text-decoration:none;border:1px solid #2a4b6d;border-radius:10px;padding:12px;background:#0c2238;min-height:44px}.areas a:hover{border-color:#5d86b0}
+.areas b{display:block;font:600 16px var(--ft);color:#fff}.areas span{font-size:13px;color:#a8bfd6}
+.mrow{display:grid;grid-template-columns:70px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:13px;color:#cbd9e6}
+.mbar{height:14px;border-radius:0 4px 4px 0;background:var(--acc)}.mrow b{text-align:right;color:#fff}
+.ledger{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.ledger div{padding:22px 18px 22px 0;border-bottom:1px solid var(--line)}
+.ledger strong{display:block;font:700 clamp(28px,3vw,40px)/1.05 var(--ft);white-space:nowrap}
+.ledger span{font-size:14px;color:var(--mute)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.head p{color:var(--mute);margin:0}
+.case{display:grid;align-items:start;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px);padding:44px 0;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0;padding-top:8px}
+.tag{font-size:13px;color:var(--acc);font-weight:600;margin-bottom:8px}
+.case h3{font-size:clamp(22px,2.4vw,28px);margin-bottom:14px}
+.case ul{margin:0 0 14px;padding-left:20px}.case li{margin-bottom:6px}
+.res{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.res div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.alt .res div{background:var(--bg)}
+.res b{display:block;font:700 22px var(--ft);white-space:nowrap}.res span{font-size:13px;color:var(--mute)}
+.note{font-size:13px;color:var(--mute)}
+/* ageing chart */
+.chart{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--bg)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mute);margin-bottom:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.crow{display:grid;grid-template-columns:78px minmax(0,1fr);gap:12px;align-items:center;margin:12px 0}
+.crow .lbl{font-size:14px;font-weight:600}
+.track{display:flex;align-items:center;gap:8px}
+.stk{display:flex;gap:2px;height:34px}
+.stk div{height:100%;cursor:default}.stk div:last-child{border-radius:0 4px 4px 0}
+.tot{font:600 15px var(--ft);white-space:nowrap}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:13px;padding:6px 9px;border-radius:6px;opacity:0;transition:opacity .1s;z-index:60}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{font-weight:600;color:var(--mute);font-size:13px}td.n,th.n{text-align:right}
+details{margin-top:12px}summary{cursor:pointer;font-size:14px;font-weight:600;min-height:32px}
+/* galleries */
+.gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.gal figure{flex:0 0 min(88%,560px);scroll-snap-align:start;margin:0}
+.gal button{display:block;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in;width:100%}
+.gal img{display:block;width:100%;height:300px;object-fit:contain;background:#fff}
+.gal figcaption{font-size:13px;color:var(--mute);margin-top:6px}
+.galnav{display:flex;gap:8px;margin-top:8px}
+.galnav button{width:44px;height:44px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px;cursor:pointer}
+/* diagrams */
+.org{display:grid;gap:12px}
+.org .top{justify-self:center;background:var(--deep);color:#fff;border-radius:10px;padding:12px 18px;text-align:center;font-weight:600}
+.org .teams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.team{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--bg)}
+.team h4{margin:0 0 4px;font:600 17px var(--ft)}.team .who{font-size:13px;color:var(--mute);margin-bottom:10px}
+.team ul{margin:0;padding-left:18px;font-size:14px}
+.wall{margin-top:4px;text-align:center;font-size:13px;color:var(--acc);font-weight:600}
+.layers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.layer{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--bg)}
+.layer .when{font-size:12px;color:var(--mute)}.layer h4{margin:2px 0 8px;font:600 17px var(--ft)}
+.layer ul{margin:0;padding-left:18px;font-size:14px}.layer li{margin-bottom:4px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.flow div{background:var(--deep);color:#fff;border-radius:8px;padding:10px;font-size:13px}.flow b{display:block;font:600 14px var(--ft)}
+.gl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px}
+.glbox{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--bg)}
+.glbox h4{margin:0 0 10px;font:600 16px var(--ft)}
+.pill{display:inline-block;font-size:13px;border-radius:6px;padding:4px 8px;margin:0 6px 6px 0;background:var(--paper);border:1px solid var(--line)}
+.bad{color:var(--acc);font-weight:600;font-size:14px;margin-top:6px}
+.glrow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:6px;font-size:13px;padding:6px 0;border-bottom:1px solid var(--line)}
+.glrow:last-child{border:0}
+.map{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);align-items:center;gap:6px;margin-bottom:8px}
+.map .src,.map .dst{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-weight:600;font-size:14px;background:var(--paper);text-align:center}
+.map .arr{text-align:center;font-size:20px;font-weight:700}.arr.ok{color:#2d6cb0}.arr.bad{color:var(--acc)}.glrow.h{color:var(--mute);font-weight:600}
+.mx td{text-align:center}.mx td:first-child,.mx th:first-child{text-align:left;white-space:nowrap}
+.mx .m{color:#2d6cb0;font-weight:600}.mx .c{color:var(--acc);font-weight:600}.mx .x{color:var(--mute)}
+.scroll{overflow-x:auto}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tile{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg)}
+.tile .where{font-size:13px;color:var(--mute);margin-bottom:6px}.tile h3{font-size:18px;margin-bottom:8px}.tile p{font-size:15px;margin:0}
+.tl{display:grid;gap:0}
+.job{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.job .d{font-size:14px;color:var(--mute)}.job .co{font:600 15px var(--ft);color:var(--acc);margin-top:4px}
+.job ul{margin:8px 0 0;padding-left:20px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px}
+footer{background:var(--deep);color:#dbe6f0}footer h2{color:#fff}
+.contact{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:18px;font-size:17px}
+dialog{width:min(1200px,96vw);height:min(90vh,1000px);padding:0;border:0;border-radius:14px;background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:#000b}
+.dlg{display:flex;flex-direction:column;height:100%}
+.dlg header{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.dlg header b{margin-right:auto;font:600 16px var(--ft)}
+.dlg .body{flex:1;overflow:auto;background:#fff;display:flex;align-items:flex-start;justify-content:center}
+.dlg iframe{border:0;width:100%;height:100%}.dlg .body img{max-width:100%;height:auto}
+@media(max-width:900px){.hero .wrap,.case{grid-template-columns:minmax(0,1fr)}.ledger{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3,.layers{grid-template-columns:minmax(0,1fr)}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.gl{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.card{grid-template-columns:96px minmax(0,1fr)}.card img{width:96px;height:96px}.org .teams{grid-template-columns:minmax(0,1fr)}
+.job{grid-template-columns:minmax(0,1fr);gap:4px}.gal img{height:220px}.crow{grid-template-columns:64px minmax(0,1fr)}table{font-size:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.grow{transition:none!important}}
+.grow{transition:width .9s ease}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Mahmoud ElSherif</b><a href="#payments">Payments</a><a href="#automation">Automation</a><a href="#controls">Controls</a><a href="#cards">Cards</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero band"><div class="wrap">
+  <div>
+    <h1>Mahmoud ElSherif</h1>
+    <div class="role">Cards &amp; Payments Operations · Reconciliation, Controls &amp; Automation</div>
+    <p>I have worked in banking operations since 2019, mostly in cards settlement and payments. Reconciliation runs through every role I have had: card network settlement, GLs and internal accounts, ATM and On-Us flows, and Nostro follow-up. I care about clear controls and simple tools that make daily work safer and easier for the team. This page collects some of that work.</p>
+    <div class="emp" aria-label="Employers"><span>Mashreq Bank</span><span>Network International</span><span>Banque Misr</span><span>Arab Bank</span></div>
+    <div class="btns"><a class="btn p" href="#payments">See the work</a><a class="btn g" href="#contact">Contact</a></div>
+  </div>
+  <div class="card">
+    <img src="img/photo.jpg" alt="Portrait of Mahmoud ElSherif">
+    <div><div class="k">Currently</div><div class="now">Acting Cards &amp; Payment Unit Manager</div><div class="k">Mashreq Bank, Egypt</div></div>
+    <div class="areas">
+      <a href="#payments"><b>Payments</b><span>SWIFT, ACH, RTGS, team and structure</span></a>
+      <a href="#automation"><b>Automation</b><span>Excel VBA and Access tools</span></a>
+      <a href="#controls"><b>Controls</b><span>Daily checks, maker-checker, access</span></a>
+      <a href="#cards"><b>Cards &amp; reconciliation</b><span>Settlement, GL mapping, recon tools</span></a>
+    </div>
+  </div>
+</div></header>
+
+<section class="band" id="impact"><div class="wrap">
+  <div class="head"><h2>A few results</h2><p>Payments Operations team, July to October 2026</p></div>
+  <div class="ledger">
+    <div><strong>9 → 1</strong><span>Complaints a month assigned to Payments</span></div>
+    <div><strong>5 → 0</strong><span>Complaints with financial impact</span></div>
+    <div><strong>408 → ~20</strong><span>Aged Nostro items open</span></div>
+    <div><strong>8+</strong><span>Daily processing controls added</span></div>
+  </div>
+</div></section>
+
+<section class="band alt" id="payments"><div class="wrap">
+  <div class="head"><h2>Payments</h2><p>SWIFT, ACH, RTGS and remittance operations · Mashreq Bank Egypt, since mid-2026</p></div>
+<article class="case" id="team">
+    <div>
+      <div class="tag">Payments · Team and structure</div>
+      <h3>Rebuilding the Payments team around clear roles</h3>
+      <p>When I joined Payments in mid-2026, most of the team were new to the bank, only two people knew every task, and follow-ups competed with the daily payment rush.</p>
+      <ul>
+        <li>Hired 7 people, including 2 Assistant Managers.</li>
+        <li>Split the unit into two teams: one processes payments, the other handles control, reconciliation and inquiries.</li>
+        <li>Agreed payment cut-off times with the business; set maker and checker finish times per processing task.</li>
+        <li>Set up a checklist with a named maker, checker and backup for every task.</li>
+      </ul>
+    </div>
+    <div class="org">
+      <div class="top">Payments Operations Manager</div>
+      <div class="teams">
+        <div class="team"><h4>Processing &amp; Execution</h4><div class="who">Assistant Manager + 5</div>
+          <ul><li>SWIFT, ACH, RTGS, E-Finance, Fawry</li><li>Checking EDMS, OBPAY and Camunda requests</li><li>Bulk uploads and payment releases</li><li>Keeps SLAs and cut-offs</li></ul></div>
+        <div class="team"><h4>Control, Reconciliation &amp; Investigations</h4><div class="who">Assistant Manager + 2</div>
+          <ul><li>Nostro monitoring and reconciliation</li><li>GL and internal account proofing</li><li>Investigations, MT199, returns</li><li>RM and branch inquiries</li></ul></div>
+      </div>
+      <div class="wall">No one checks or reconciles their own payment</div>
+    </div>
+  </article><article class="case" id="nostro">
+    <div>
+      <div class="tag">Payments · Nostro follow-up</div>
+      <h3>Bringing aged Nostro items down from 408 to about 20</h3>
+      <p>In July the Payments unit had 408 aged Nostro items open, 21 of them older than 15 days. Follow-up was competing with daily processing, so items kept ageing.</p>
+      <ul>
+        <li>Nostro follow-up was given to one team with a clear owner.</li>
+        <li>Open items are followed up daily, and items blocked outside the unit are escalated.</li>
+        <li>By October the team averaged about 20 open items, around 90% of them waiting on Compliance.</li>
+      </ul>
+      <div class="res"><div><b>408 → ~20</b><span>open aged items</span></div><div><b>21 → 3</b><span>items over 15 days</span></div></div>
+    </div>
+    <div class="chart">
+      <div class="legend"><span><i style="background:var(--s1)"></i>2–7 days</span><span><i style="background:var(--s2)"></i>7–14 days</span><span><i style="background:var(--s3)"></i>15+ days</span></div>
+      <div id="age"></div>
+      <details><summary>Show as a table</summary><div class="scroll"><table id="agetab"></table></div></details>
+      <p class="note" style="margin-top:10px">Number of open items assigned to Payments, by age. No amounts or account details.</p>
+    </div>
+  </article>
+</div></section>
+
+<section class="band" id="automation"><div class="wrap">
+  <div class="head"><h2>Payment tools</h2><p>Tools I built for the Payments team. Screens show sample data.</p></div>
+<article class="case" id="mail">
+    <div>
+      <div class="tag">Email workflow · Microsoft Access + Outlook</div>
+      <h3>Making sure every payment email has an owner</h3>
+      <p>The payment group receives around 400–500 emails a day, many of them payment requests. Emails were sometimes missed, so I built a workflow on top of Outlook that tracks each one from arrival to close.</p>
+      <ul>
+        <li>Every email gets a reference, a named owner and a 60-minute reply deadline.</li>
+        <li>Unanswered emails escalate automatically to the manager and supervisors.</li>
+        <li>Classification is required before closing, giving volumes and processing time per email type.</li>
+        <li>A daily control proves every email in Outlook is in the workflow.</li>
+      </ul>
+      <div class="btns"><button class="btn p" data-guide="guides/email-workflow-guide.html" data-t="Email Workflow v6.3 – User Guide">Open the user guide</button></div>
+    </div>
+    <div><div class="gal" id="g-mail"></div><div class="galnav"><button data-g="g-mail" data-d="-1" aria-label="Previous">‹</button><button data-g="g-mail" data-d="1" aria-label="Next">›</button></div></div>
+  </article><article class="case" id="bulk">
+    <div>
+      <div class="tag">Bulk upload control · Excel VBA</div>
+      <h3>Controlled bulk uploads with three checks</h3>
+      <p>Bulk upload files used to be edited by hand, which led to a wrong-amount posting and audit comments. These tools now cover internal-transfer (Flexcube) and SWIFT outward (MT103 via RTGS) uploads.</p>
+      <ul>
+        <li>The checker re-enters the request independently; the tool matches line by line.</li>
+        <li>Built-in checks for balance, field formats and possible duplicate transfers.</li>
+        <li>Only the tool creates the upload files, after the check passes; the batch then locks.</li>
+        <li>A separate second-checker tool gives the unit head the final review before upload.</li>
+      </ul>
+      <div class="btns"><button class="btn p" data-guide="guides/bulk-upload-guide.html" data-t="Bulk Upload Tools – User Guide">Open the user guide</button></div>
+    </div>
+    <div>
+      <div class="flow"><div><b>Maker</b>Enters the request</div><div><b>Checker</b>Re-enters and runs the check</div><div><b>Second checker</b>Unit head reviews</div><div><b>Approver</b>Approves by email</div><div><b>Upload</b>Files placed after approval</div></div>
+      <div class="gal" id="g-bulk"></div><div class="galnav"><button data-g="g-bulk" data-d="-1" aria-label="Previous">‹</button><button data-g="g-bulk" data-d="1" aria-label="Next">›</button></div>
+    </div>
+  </article>
+</div></section>
+
+<section class="band alt" id="controls"><div class="wrap">
+  <div class="head"><h2>Controls</h2><p>Preventive and detective controls, evidenced every day</p></div>
+<article class="case" id="controls">
+    <div>
+      <div class="tag">Controls · Control Enhancement Program</div>
+      <h3>Daily controls in three layers</h3>
+      <p>We applied the Egypt Operations Control Enhancement Program in Payments and added payment controls for the issues we had seen before: duplicate payments, wrong beneficiaries and wrong upload amounts.</p>
+      <ul>
+        <li>Every discrepancy is rectified, logged, reported per the severity matrix and escalated.</li>
+        <li>Each review is saved in the daily journal for QC and audit.</li>
+        <li>Recurring issues lead to a control fix, not only a correction.</li>
+      </ul>
+      <div class="res"><div><b>8+</b><span>new daily payment controls</span></div><div><b>1:00 PM + EOD</b><span>mismatch GLs zeroed</span></div></div>
+    </div>
+    <div class="layers">
+      <div class="layer"><div class="when">Before posting</div><h4>Preventive</h4><ul><li>No paste in amount fields</li><li>Balance check and no force post on internal accounts</li><li>Approved OD limits</li><li>Checker re-keys critical fields</li><li>Duplicate-payment (PDE) check before release</li></ul></div>
+      <div class="layer"><div class="when">Same day</div><h4>Detective</h4><ul><li>Journal check intraday and EOD: reversals, back-dated, high-value</li><li>Mismatch GL zeroing</li><li>Manual SWIFT QC and NACK / ACK monitoring</li><li>RTGS rejections, FTR hold queue</li><li>Mailbox end-of-day completeness check</li></ul></div>
+      <div class="layer"><div class="when">Second working day</div><h4>Review</h4><ul><li>Daily control reports run by the unit</li><li>FX deals vs. processed transactions</li><li>Bulk upload postings review</li><li>Reversal process tested</li><li>Weekly QC by Governance &amp; Compliance</li></ul></div>
+    </div>
+  </article><article class="case" id="checklist">
+    <div>
+      <div class="tag">Controls · Task checklist &amp; access matrix</div>
+      <h3>A named owner for every task and system</h3>
+      <p>One workbook lists every Payments task with a maker, checker and a backup for each, and gives each person a view of their own tasks. A separate matrix sets maker, checker or no access for each user on 15 systems, which makes segregation of duties easy to show to audit.</p>
+      <p class="note">Tables show the structure with sample roles.</p>
+    </div>
+    <div style="display:grid;gap:18px">
+      <div class="scroll"><table>
+        <thead><tr><th>Task</th><th>Maker</th><th>Maker backup</th><th>Checker</th><th>Checker backup</th></tr></thead>
+        <tbody>
+          <tr><td>Incoming SWIFT (FLEXCUBE)</td><td>Officer A</td><td>Officer B</td><td>Senior Officer A</td><td>Officer D</td></tr>
+          <tr><td>ACH incoming queue (PAYHUB)</td><td>Officer B</td><td>Officer C</td><td>Officer D</td><td>Senior Officer A</td></tr>
+          <tr><td>Nostro reconciliation</td><td>Senior Officer B</td><td>Officer E</td><td>Assistant Manager B</td><td>Manager</td></tr>
+          <tr><td>Mismatch GL zeroing, 1:00 PM</td><td>Officer E</td><td>Senior Officer B</td><td>Assistant Manager B</td><td>Assistant Manager A</td></tr>
+          <tr><td>SWIFT NACK monitoring</td><td>Officer C</td><td>Officer A</td><td>Senior Officer A</td><td>Officer D</td></tr>
+        </tbody></table></div>
+      <div class="scroll"><table class="mx" id="mx"></table></div>
+      <p class="note" style="margin:0"><span class="m">M</span> maker · <span class="c">C</span> checker · <span class="x">–</span> no access. 6 of the 15 systems shown.</p>
+    </div>
+  </article>
+</div></section>
+
+<section class="band" id="cards"><div class="wrap">
+  <div class="head"><h2>Cards &amp; reconciliation</h2><p>Settlement, reconciliation and GL control</p></div>
+<article class="case" id="mc">
+    <div>
+      <div class="tag">Cards · MasterCard settlement tool · Excel VBA</div>
+      <h3>MasterCard settlement prepared from the network files</h3>
+      <p>I built this tool to remove manual settlement steps. The tool loads the MasterCard T140 files, generates grand totals by transaction type for debit and credit cards in USD and EGP, separates transactions from interchange, reconciles against the core banking report and creates the upload sheet.</p>
+      <ul>
+        <li>Three-step flow: upload T140 files, generate totals, upload the CBS report.</li>
+        <li>Control cells must equal zero before the upload sheet can be used.</li>
+      </ul>
+    </div>
+    <div><div class="gal" id="g-mc"></div><div class="galnav"><button data-g="g-mc" data-d="-1" aria-label="Previous">‹</button><button data-g="g-mc" data-d="1" aria-label="Next">›</button></div></div>
+  </article><article class="case" id="gl">
+    <div>
+      <div class="tag">Cards · GL mapping</div>
+      <h3>Rebuilding the GL mapping for all card transactions</h3>
+      <p>A review of the cards GLs showed that many transaction types were mapped to the wrong GLs. For example, VISA POS transactions were routed to EBC GLs and EBC transactions to VISA GLs, and there were many similar cases across networks and transaction types.</p>
+      <p>With mixed sources in the same GLs, balances often ended the day against their nature, settlement needed manual intervention, and breaks were hard to trace.</p>
+      <ul>
+        <li>Reviewed the mapping of every card transaction type, across all networks.</li>
+        <li>Rebuilt the mapping so each network and transaction type posts to its own correct GL.</li>
+        <li>Created new GLs with the right payable and receivable mapping.</li>
+        <li>Each GL now reconciles to a single source, which makes daily reconciliation simpler.</li>
+      </ul>
+    </div>
+    <div class="gl">
+      <div class="glbox"><h4>Before</h4>
+        <p class="note" style="margin:0 0 10px">Many wrong mappings, for example:</p>
+        <div class="map"><span class="src">VISA POS</span><span class="arr bad">→</span><span class="dst">EBC GL</span></div>
+        <div class="map"><span class="src">EBC</span><span class="arr bad">→</span><span class="dst">VISA GL</span></div>
+        <div class="bad">Mixed sources, against-nature balances, manual settlement</div>
+      </div>
+      <div class="glbox"><h4>After: full mapping rebuilt</h4>
+        <div class="glrow h"><span>Each network, each type</span><span>Receivable GL</span><span>Payable GL</span></div>
+        <div class="glrow"><span>Purchases / POS</span><span>Own GL</span><span>Own GL</span></div>
+        <div class="glrow"><span>ATM cash</span><span>Own GL</span><span>Own GL</span></div>
+        <div class="glrow"><span>Fees</span><span>Own GL</span><span>Own GL</span></div>
+        <div class="glrow"><span>Chargebacks &amp; reversals</span><span>Own GL</span><span>Own GL</span></div>
+        <div class="note" style="margin-top:8px">Applied to VISA, MasterCard, EBC and MEEZA. Illustration only; no real GL numbers.</div>
+      </div>
+    </div>
+  </article>
+  <h3 style="margin:36px 0 16px">Other cards work</h3>
+  <div class="grid3" style="margin-top:8px">
+    <div class="tile"><div class="where">Mashreq Bank</div><h3>Cards reconciliation automation</h3><p>Wrote BRDs for each cards GL and internal account and worked with SmartStream on a redesigned cycle, aiming for fully automated matching.</p></div>
+    <div class="tile"><div class="where">Mashreq Bank</div><h3>CPM: capacity &amp; productivity</h3><p>Tracks SLA, TAT and productivity across Card Center functions and estimates the FTEs each function needs.</p></div>
+    <div class="tile"><div class="where">Mashreq Bank</div><h3>ATM reconciliation tool</h3><p>Automated the daily ATM reconciliation steps.</p></div>
+    <div class="tile"><div class="where">Network International</div><h3>DFM cards &amp; VISA Base II tools</h3><p>Reconciliation tools for UAE clients, plus documentation of On-Us transaction flows.</p></div>
+    <div class="tile"><div class="where">Banque Misr</div><h3>Issuer settlement</h3><p>VISA and MasterCard issuer settlement, daily GL monitoring and quarterly certifications.</p></div>
+    <div class="tile"><div class="where">Mashreq Bank</div><h3>Operations Transformation Program</h3><p>Part of the program automating processing end to end, with Operations acting as checker.</p></div>
+  </div>
+</div></section>
+
+<section class="band alt" id="experience"><div class="wrap">
+  <div class="head"><h2>Experience</h2><p>Bachelor of International Business Administration, Sadat Academy, 2019</p></div>
+  <div class="tl">
+    <div class="job"><div><div class="d">Jun 2026 – Present</div><div class="co">Mashreq Bank, Egypt</div></div><div><h3>Acting Cards &amp; Payment Unit Manager</h3><ul><li>Leading Payments Operations: rebuilt the team into two teams, applied the Control Enhancement Program and built workflow and upload tools.</li></ul></div></div>
+    <div class="job"><div><div class="d">Jan 2026 – Jun 2026</div><div class="co">Mashreq Bank, Egypt</div></div><div><h3>Cards &amp; Payment Settlement and Reconciliation Assistant Manager</h3><ul><li>Led a team of 7; remapped cards GLs; owned the reconciliation system and the CPM capacity model.</li></ul></div></div>
+    <div class="job"><div><div class="d">Sep 2024 – Dec 2025</div><div class="co">Network International, Egypt</div></div><div><h3>Reconciliation Senior Officer – UAE Team</h3><ul><li>ATM, cards, POS and On-Us reconciliation for UAE issuers; VISA Base II and chargeback GLs; quarterly RCSA.</li></ul></div></div>
+    <div class="job"><div><div class="d">Oct 2023 – Sep 2024</div><div class="co">Mashreq Bank, Egypt</div></div><div><h3>Cards Settlement and Reconciliation Senior Officer</h3><ul><li>Supervised 3 across VISA, MasterCard, EBC, MEEZA; built the MasterCard settlement and ATM reconciliation tools.</li></ul></div></div>
+    <div class="job"><div><div class="d">Mar 2022 – Oct 2023</div><div class="co">Banque Misr, Egypt</div></div><div><h3>Cards Settlement and Reconciliation Analyst</h3><ul><li>Issuer settlement, daily GL monitoring, quarterly certifications, E-Wallet reconciliation and core banking upgrade testing.</li></ul></div></div>
+    <div class="job"><div><div class="d">Oct 2019 – Feb 2022</div><div class="co">Arab Bank, Egypt</div></div><div><h3>Customer Care Officer</h3><ul><li>100+ customer cases a day, fraud indicators, CRM testing and chatbot content.</li></ul></div></div>
+  </div>
+  <h3 style="margin:36px 0 14px">Expertise</h3>
+  <div class="chips"><span>Cards settlement (VISA, MasterCard, MEEZA)</span><span>Payments: SWIFT · ACH · RTGS</span><span>Card and GL reconciliation</span><span>Operational controls</span><span>Maker-checker &amp; segregation of duties</span><span>GL mapping</span><span>Excel VBA &amp; Access automation</span><span>Incident escalation &amp; RCSA</span><span>Capacity &amp; SLA analytics</span><span>Team building</span></div>
+  <h3 style="margin:30px 0 14px">Certifications</h3>
+  <div class="chips"><span>Data Analytics – ESLSCA University</span><span>Data Analytics – ALX Africa, 2025</span><span>AI Augmented Professional Development – ALX Africa, 2024</span><span>AI Career Essentials – ALX Africa</span></div>
+</div></section>
+
+<footer class="band" id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <p style="margin-top:12px">Happy to talk about cards, payments, controls or automation work.</p>
+  <div class="contact"><a href="mailto:Mahmoudelsherif338@hotmail.com">Mahmoudelsherif338@hotmail.com</a><span>+20 101 044 0449</span><span>Nasr City, Cairo, Egypt</span></div>
+</div></footer>
+
+<dialog id="dlg"><div class="dlg"><header><b id="dlgT"></b><a class="btn o" id="dlgOpen" href="#" target="_blank" rel="noopener">Open in new tab</a><button class="btn o" id="dlgX">Close</button></header><div class="body" id="dlgB"></div></div></dialog>
+<div class="tip" id="tip"></div>
+
+<script>
+{
+const age=[{m:'Jul 2026',a:199,b:188,c:21},{m:'Sep 2026',a:6,b:8,c:4},{m:'Oct 2026',a:13,b:7,c:3}];
+const max=408,tip=document.getElementById('tip');
+const segs=r=>[['2–7 days',r.a,'--s1'],['7–14 days',r.b,'--s2'],['15+ days',r.c,'--s3']];
+document.getElementById('age').innerHTML=age.map(r=>{const t=r.a+r.b+r.c;return `<div class="crow"><div class="lbl">${r.m}</div><div class="track"><div class="stk grow" data-w="${t/max*88}" style="width:0%">${segs(r).map(s=>`<div data-tip="${r.m} · ${s[0]}: ${s[1]}" style="flex:${s[1]} 0 0;background:var(${s[2]})"></div>`).join('')}</div><span class="tot">${t}</span></div></div>`}).join('');
+document.getElementById('agetab').innerHTML='<tr><th>Month</th><th class="n">2–7 days</th><th class="n">7–14 days</th><th class="n">15+ days</th><th class="n">Total</th></tr>'+age.map(r=>`<tr><td>${r.m}</td><td class="n">${r.a}</td><td class="n">${r.b}</td><td class="n">${r.c}</td><td class="n">${r.a+r.b+r.c}</td></tr>`).join('');
+requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll('.grow').forEach(e=>e.style.width=e.dataset.w+'%'),80));
+document.addEventListener('mousemove',e=>{const t=e.target.closest('[data-tip]');if(t){tip.textContent=t.dataset.tip;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY+12)+'px';tip.style.opacity=1}else tip.style.opacity=0});
+
+const sys=['FLEXCUBE','SWIFT Alliance','PAYHUB (ACH)','RTGS','EDMS','TLM'];
+const roles=[['Processing maker','M M M M – –'],['Processing checker','C C C C C –'],['Reconciliation team','– – – – – M'],['Assistant Manager','C C C C C C']];
+document.getElementById('mx').innerHTML='<tr><th>Role</th>'+sys.map(s=>`<th>${s}</th>`).join('')+'</tr>'+roles.map(r=>'<tr><td>'+r[0]+'</td>'+r[1].split(' ').map(v=>`<td class="${v==='M'?'m':v==='C'?'c':'x'}">${v}</td>`).join('')+'</tr>').join('');
+
+const G={
+ 'g-mail':[['mail-eaab55','Work queue: every email with a reference, owner and status'],['mail-dbd369','Control dashboard: completeness and SLA at a glance'],['mail-46559f','Automatic SLA alert for emails not replied within 60 minutes'],['mail-3b2024','Daily control email proving Outlook and the workflow reconcile'],['mail-b7a43d','Reports: volumes, processing time and SLA, exported to Excel'],['mail-e7d491','Settings: rules, SLAs and team managed without code'],['mail-9a7ee8','Case history: full audit trail per email'],['mail-66de41','Team availability for assignment']],
+ 'g-bulk':[['bulk-998b8c','Maker sheet: lines entered, totals must balance'],['bulk-81f383','Checker sheet: independent re-entry, matched line by line'],['bulk-a8d80f','Check result block sent to the second checker'],['bulk-e9f8d3','Possible duplicate transfers stopped for confirmation'],['bulk-9057b4','Line-level validation messages'],['bulk-ad9eec','SWIFT outward bulk upload: maker sheet'],['bulk-9393a9','Upload files created only after the check passes']],
+ 'g-mc':[['mc-menu','Three-step menu: T140 files, grand totals, CBS report'],['mc-control','Settlement totals by type for debit and credit cards, with zero-check control cells']]
+};
+for(const id in G){document.getElementById(id).innerHTML=G[id].map(([f,c])=>`<figure><button data-img="img/${f}.jpg" data-t="${c}"><img src="img/${f}.jpg" alt="${c}"></button><figcaption>${c}</figcaption></figure>`).join('')}
+
+const dlg=document.getElementById('dlg'),B=document.getElementById('dlgB'),T=document.getElementById('dlgT'),O=document.getElementById('dlgOpen');
+const open=(html,title,href)=>{B.innerHTML=html;T.textContent=title;O.href=href;try{dlg.showModal()}catch(e){location.href=href}};
+document.addEventListener('click',e=>{
+ const g=e.target.closest('[data-guide]');if(g){open(`<iframe src="${g.dataset.guide}" title="${g.dataset.t}"></iframe>`,g.dataset.t,g.dataset.guide);return}
+ const im=e.target.closest('[data-img]');if(im){open(`<img src="${im.dataset.img}" alt="">`,im.dataset.t,im.dataset.img);return}
+ const n=e.target.closest('[data-g]');if(n){const s=document.getElementById(n.dataset.g);s.scrollBy({left:(s.clientWidth*0.9)*n.dataset.d,behavior:'smooth'})}
+});
+document.getElementById('dlgX').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+document.querySelectorAll('.gal').forEach(s=>{s.tabIndex=0;s.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();s.scrollBy({left:(e.key==='ArrowRight'?1:-1)*s.clientWidth*0.9,behavior:'smooth'})}})});
+}
+</script>
+</body>
+</html>
